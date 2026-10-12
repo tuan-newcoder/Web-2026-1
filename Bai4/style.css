@@ -1,0 +1,257 @@
+@font-face {
+	font-family: "PT Serif Caption";
+	src: url("../fonts/PT_Serif-Caption-Web-Regular.woff") format("woff");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Unifraktur";
+	src: url("../fonts/UnifrakturCook-Bold.woff") format("woff");
+	font-display: swap;
+}
+
+:root {
+	--ink: #2d211c;
+	--muted: #786b61;
+	--paper: #fffaf1;
+	--paper-deep: #f4e5cf;
+	--cream: #f8efdf;
+	--rust: #a84f36;
+	--rust-dark: #713526;
+	--gold: #d9a45b;
+	--line: rgba(113, 53, 38, .18);
+	--shadow: 0 18px 50px rgba(73, 42, 25, .14);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+	margin: 0;
+	background: #ead4b4 url("./images/bg-body.png") repeat-x top;
+	color: var(--ink);
+	font-family: Georgia, "Times New Roman", serif;
+	line-height: 1.7;
+}
+
+body::before {
+	content: "";
+	display: block;
+	height: 7px;
+	background: var(--rust-dark);
+}
+
+a { color: var(--rust); }
+a:hover { color: var(--rust-dark); }
+
+img { display: block; max-width: 100%; }
+
+.site-header,
+.layout,
+.site-footer {
+	width: min(1180px, calc(100% - 40px));
+	margin-inline: auto;
+}
+
+.site-header {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: end;
+	gap: 24px;
+	padding: 42px 0 28px;
+}
+
+.site-name {
+	color: var(--rust-dark);
+	display: inline-block;
+	font: 3.2rem/1 "Unifraktur", Georgia, serif;
+	letter-spacing: .02em;
+	text-decoration: none;
+	text-shadow: 1px 2px 0 rgba(255, 250, 241, .7);
+}
+
+.tagline {
+	color: var(--muted);
+	font-size: .88rem;
+	letter-spacing: .16em;
+	margin: 10px 0 0;
+	text-transform: uppercase;
+}
+
+.main-nav ul,
+.value-list,
+.team-list,
+.recent,
+.footer-cols {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main-nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 8px 22px;
+}
+
+.main-nav a {
+	color: var(--ink);
+	font-size: .88rem;
+	font-weight: bold;
+	letter-spacing: .08em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.main-nav a:hover { color: var(--rust); }
+
+.layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 280px;
+	gap: 30px;
+	align-items: start;
+}
+
+main,
+.sidebar,
+.site-footer {
+	background: var(--paper);
+	box-shadow: var(--shadow);
+}
+
+main { padding: clamp(24px, 4vw, 58px); }
+
+article,
+section { scroll-margin-top: 24px; }
+
+article { border-bottom: 1px solid var(--line); padding-bottom: 34px; }
+section { border-bottom: 1px solid var(--line); padding: 42px 0; }
+section:last-child { border-bottom: 0; padding-bottom: 0; }
+
+h1, h2, h3 { color: var(--rust-dark); line-height: 1.15; }
+h1 {
+	font-size: clamp(2.1rem, 4vw, 3.5rem);
+	font-weight: normal;
+	letter-spacing: -.025em;
+	margin: 0 0 24px;
+}
+h2 {
+	font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+	font-weight: normal;
+	margin: 0 0 24px;
+}
+h3 { font-size: 1.1rem; margin: 0 0 8px; }
+p { margin: 0 0 18px; }
+
+figure { margin: 0 0 28px; }
+article figure img {
+	width: 100%;
+	height: clamp(230px, 38vw, 460px);
+	object-fit: cover;
+	filter: sepia(.12) saturate(.9);
+}
+figcaption {
+	color: var(--muted);
+	font-size: .78rem;
+	font-style: italic;
+	margin-top: 8px;
+}
+
+.value-list,
+.team-list { display: grid; gap: 16px; }
+.value-list { grid-template-columns: repeat(3, 1fr); }
+.value-card {
+	background: var(--cream);
+	border-top: 4px solid var(--gold);
+	padding: 20px;
+}
+.value-card p,
+.member p { color: var(--muted); font-size: .92rem; margin: 0; }
+
+.team-list { grid-template-columns: repeat(3, 1fr); }
+.member { text-align: center; }
+.member img {
+	border: 7px solid var(--cream);
+	border-radius: 50%;
+	height: 150px;
+	margin: 0 auto 14px;
+	object-fit: cover;
+	width: 150px;
+}
+
+.contact-form p { margin-bottom: 16px; }
+.contact-form label { display: inline-block; font-weight: bold; margin-bottom: 5px; }
+.contact-form input,
+.contact-form textarea {
+	background: #fffdf8;
+	border: 1px solid #d9c4a5;
+	border-radius: 2px;
+	color: var(--ink);
+	font: inherit;
+	padding: 11px 13px;
+	width: 100%;
+}
+.contact-form textarea { min-height: 125px; resize: vertical; }
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: var(--rust); outline: 3px solid rgba(168, 79, 54, .15); }
+.contact-form button {
+	background: var(--rust);
+	border: 0;
+	border-radius: 2px;
+	box-shadow: 0 4px 0 var(--rust-dark);
+	color: #fffaf1;
+	cursor: pointer;
+	font: bold .9rem Georgia, serif;
+	letter-spacing: .05em;
+	padding: 12px 22px;
+	text-transform: uppercase;
+}
+.contact-form button:hover { background: var(--rust-dark); }
+.contact-form button:active { box-shadow: none; transform: translateY(3px); }
+
+.sidebar {
+	background: var(--paper-deep);
+	padding: 28px 24px;
+	position: sticky;
+	top: 20px;
+}
+.sidebar h2 { border-bottom: 2px solid var(--gold); font-size: 1.45rem; padding-bottom: 12px; }
+.recent li { border-bottom: 1px solid var(--line); padding: 12px 0; }
+.recent li:first-child { padding-top: 0; }
+.recent a { font-weight: bold; text-decoration: none; }
+.sidebar > p { color: var(--muted); font-size: .9rem; margin-top: 28px; }
+
+.site-footer {
+	margin-top: 30px;
+	padding: 36px clamp(24px, 4vw, 58px) 20px;
+}
+.footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.footer-cols h3 { font-size: 1rem; letter-spacing: .05em; text-transform: uppercase; }
+.footer-cols p { color: var(--muted); font-size: .88rem; margin: 0; }
+.copyright { border-top: 1px solid var(--line); color: var(--muted); margin: 30px 0 0; padding-top: 18px; text-align: center; }
+
+@media (max-width: 820px) {
+	.site-header { grid-template-columns: 1fr; gap: 22px; }
+	.main-nav ul { justify-content: flex-start; }
+	.layout { grid-template-columns: 1fr; }
+	.sidebar { position: static; }
+	.footer-cols { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+	.site-header, .layout, .site-footer { width: min(100% - 24px, 1180px); }
+	.site-header { padding: 30px 0 22px; }
+	.site-name { font-size: 2.5rem; }
+	.tagline { font-size: .75rem; letter-spacing: .1em; }
+	.main-nav ul { gap: 10px 14px; }
+	.main-nav a { font-size: .75rem; }
+	main { padding: 24px 18px; }
+	.value-list, .team-list, .footer-cols { grid-template-columns: 1fr; }
+	.member { display: grid; grid-template-columns: 86px 1fr; gap: 0 16px; text-align: left; align-items: center; }
+	.member img { grid-row: span 2; height: 86px; width: 86px; }
+	.member h3 { margin: 0; }
+	.member p { font-size: .85rem; }
+}
